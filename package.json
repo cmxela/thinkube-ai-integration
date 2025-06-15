@@ -12,7 +12,7 @@
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thinkube/thinkube-ai-integration"
+    "url": "https://github.com/cmxela/thinkube-ai-integration"
   },
   "activationEvents": [],
   "main": "./dist/extension.js",
