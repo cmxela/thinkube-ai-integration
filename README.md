@@ -28,6 +28,13 @@ All Claude Code commands are grouped under a submenu in the context menu:
 
 ## Installation
 
+### From Open VSX Registry
+
+```bash
+# Once published to Open VSX
+code-server --install-extension thinkube.thinkube-ai-integration
+```
+
 ### From VSIX File
 
 ```bash
