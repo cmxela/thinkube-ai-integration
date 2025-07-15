@@ -1,6 +1,6 @@
 # Thinkube AI Integration
 
-code-server extension for integrating AI assistants (currently Claude) into your development workflow within the Thinkube platform.
+code-server extension for integrating AI assistants (currently Claude) into your development workflow within the Thinkube platform, with a focus on application development.
 
 ## Features
 
@@ -11,15 +11,31 @@ code-server extension for integrating AI assistants (currently Claude) into your
 - **Session Management**: Start new sessions or continue existing ones
 - **Project Configuration**: Configure reference directories per project
 
+### App Development Features (NEW)
+
+- **Create from Template**: Generate new applications from Thinkube templates
+- **Add Service**: Easily integrate PostgreSQL, Redis, Keycloak, MinIO, and more
+- **Generate Component**: Create Vue/React/Angular components with proper structure
+- **Generate API**: Build FastAPI/Django/Express endpoints with best practices
+- **Deploy to Preview**: One-click deployment to Thinkube preview environment
+
 ### Commands
 
-All Claude Code commands are grouped under a submenu in the context menu:
+All commands are grouped under submenus in the context menu:
 
+#### Claude Code Commands
 - **Claude Code → Open Here**: Launch Claude in the selected directory
 - **Claude Code → Continue Session**: Continue an existing Claude session
 - **Claude Code → Add Reference Directory**: Add a directory for Claude to reference
 - **Claude Code → Configure Project**: Manage reference directories
 - **Claude Code → Show Configuration**: View current configuration
+
+#### Quick Actions (App Development)
+- **Claude Code → Quick Actions → Create from Template**: Start a new app from Vue+FastAPI or other templates
+- **Claude Code → Quick Actions → Generate Component**: Create frontend components with tests and styling
+- **Claude Code → Quick Actions → Generate API**: Build backend API endpoints with validation and docs
+- **Claude Code → Quick Actions → Add Service**: Integrate databases, caching, auth, and storage services
+- **Claude Code → Quick Actions → Deploy to Preview**: Deploy your app to the Thinkube preview environment
 
 ### Keyboard Shortcuts
 
@@ -107,7 +123,13 @@ npm run package
 ```
 thinkube-ai-integration/
 ├── src/
-│   └── extension.ts      # Main extension code
+│   ├── extension.ts      # Main extension code
+│   ├── commands/         # Command handlers
+│   │   └── app.ts       # App development commands
+│   ├── context/          # Context detection
+│   │   └── project.ts   # Project type and framework detection
+│   └── integration/      # External integrations
+│       └── claude.ts    # Claude CLI integration
 ├── package.json          # Extension manifest
 ├── tsconfig.json         # TypeScript configuration
 ├── icon.png              # Extension icon

@@ -42,6 +42,31 @@
         "command": "thinkube-ai.claude.showConfiguration",
         "title": "Show Configuration",
         "category": "Claude Code"
+      },
+      {
+        "command": "thinkube-ai.app.createFromTemplate",
+        "title": "Create from Template",
+        "category": "Thinkube App"
+      },
+      {
+        "command": "thinkube-ai.app.addService",
+        "title": "Add Service",
+        "category": "Thinkube App"
+      },
+      {
+        "command": "thinkube-ai.app.generateComponent",
+        "title": "Generate Component",
+        "category": "Thinkube App"
+      },
+      {
+        "command": "thinkube-ai.app.generateAPI",
+        "title": "Generate API",
+        "category": "Thinkube App"
+      },
+      {
+        "command": "thinkube-ai.deploy.preview",
+        "title": "Deploy to Preview",
+        "category": "Thinkube Deploy"
       }
     ],
     "menus": {
@@ -72,6 +97,32 @@
         {
           "command": "thinkube-ai.claude.showConfiguration",
           "group": "2_config@3"
+        },
+        {
+          "submenu": "claude.code.quickactions",
+          "group": "3_quickactions@1"
+        }
+      ],
+      "claude.code.quickactions": [
+        {
+          "command": "thinkube-ai.app.createFromTemplate",
+          "group": "1_create@1"
+        },
+        {
+          "command": "thinkube-ai.app.generateComponent",
+          "group": "2_generate@1"
+        },
+        {
+          "command": "thinkube-ai.app.generateAPI",
+          "group": "2_generate@2"
+        },
+        {
+          "command": "thinkube-ai.app.addService",
+          "group": "3_services@1"
+        },
+        {
+          "command": "thinkube-ai.deploy.preview",
+          "group": "4_deploy@1"
         }
       ],
       "editor/context": [
@@ -110,6 +161,26 @@
         {
           "command": "thinkube-ai.claude.showConfiguration",
           "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "thinkube-ai.app.createFromTemplate",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "thinkube-ai.app.addService",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "thinkube-ai.app.generateComponent",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "thinkube-ai.app.generateAPI",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "thinkube-ai.deploy.preview",
+          "when": "workspaceFolderCount > 0"
         }
       ]
     },
@@ -117,6 +188,10 @@
       {
         "id": "claude.code.submenu",
         "label": "Claude Code"
+      },
+      {
+        "id": "claude.code.quickactions",
+        "label": "Quick Actions"
       },
       {
         "id": "claude.code.editor.submenu",
@@ -147,6 +222,17 @@
           "type": "boolean",
           "default": true,
           "description": "Show notifications when adding/removing directories"
+        },
+        "thinkube-ai.controlDomain": {
+          "type": "string",
+          "default": "",
+          "description": "Your Thinkube domain (e.g., thinkube.com)"
+        },
+        "thinkube-ai.apiToken": {
+          "type": "string",
+          "default": "",
+          "description": "Thinkube Control API token for deployments",
+          "markdownDescription": "Get your API token from Thinkube Control settings"
         }
       }
     }

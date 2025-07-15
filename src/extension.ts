@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as appCommands from './commands/app';
 
 interface ClaudeConfig {
     directories: string[];
@@ -9,7 +10,7 @@ interface ClaudeConfig {
 export function activate(context: vscode.ExtensionContext) {
     console.log('Thinkube AI Integration is now active!');
 
-    // Register commands
+    // Register existing Claude commands
     context.subscriptions.push(
         vscode.commands.registerCommand('thinkube-ai.claude.openHere', (uri?: vscode.Uri) => {
             launchClaude(uri, false);
@@ -38,6 +39,27 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('thinkube-ai.claude.showConfiguration', async () => {
             await showCurrentConfiguration();
         })
+    );
+
+    // Register new app development commands
+    context.subscriptions.push(
+        vscode.commands.registerCommand('thinkube-ai.app.createFromTemplate', appCommands.createFromTemplate)
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('thinkube-ai.app.addService', appCommands.addService)
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('thinkube-ai.app.generateComponent', appCommands.generateComponent)
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('thinkube-ai.app.generateAPI', appCommands.generateAPI)
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('thinkube-ai.deploy.preview', appCommands.deployPreview)
     );
 }
 
